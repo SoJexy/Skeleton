@@ -1,9 +1,10 @@
 package com.ethanhua.skeleton;
 
-import android.support.annotation.IntRange;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+
+import androidx.annotation.IntRange;
+import androidx.recyclerview.widget.RecyclerView;
 
 import io.supercharge.shimmerlayout.ShimmerLayout;
 
@@ -48,7 +49,7 @@ public class SkeletonAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public int getItemViewType(int position) {
-        if(doesArrayOfLayoutsExist()) {
+        if (doesArrayOfLayoutsExist()) {
             return getCorrectLayoutItem(position);
         }
         return super.getItemViewType(position);
@@ -93,7 +94,7 @@ public class SkeletonAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     public int getCorrectLayoutItem(int position) {
-        if(doesArrayOfLayoutsExist()) {
+        if (doesArrayOfLayoutsExist()) {
             return mLayoutArrayReferences[position % mLayoutArrayReferences.length];
         }
         return mLayoutReference;
